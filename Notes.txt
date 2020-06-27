@@ -1,0 +1,25 @@
+
+home-page:
+	a list of all champions with icons + name
+
+User can click on a champion to go the champion's page
+
+champion-page:
+	splash art (can cycle through skins, can press little circles (carousel like))
+	name + title
+	lore
+	abilities + passive (images)
+		if clicked on one -> show description
+	stats
+
+
+first show only the first 10 champions
+
+and make only a page for aatrox
+	
+-----
+
+Add filter text box to filter champions on the champion-list page thingy
+create service to get data from the riot games api
+add services to the champions-list and championDetail components to show correct data
+make page for championDetail component

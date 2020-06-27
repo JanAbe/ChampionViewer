@@ -1,0 +1,10 @@
+<div class="container">
+	<div *ngFor="let champion of champions">
+		<figure class="champion-card">
+			<a [routerLink]="['/champions', champion.name]">
+				<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" width="300px" height="150px">
+			</a>
+			<figcaption>Aatrox the Darkin Blade</figcaption>
+		</figure>
+	</div>
+</div>

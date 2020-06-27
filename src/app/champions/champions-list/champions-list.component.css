@@ -1,0 +1,20 @@
+figcaption {
+	text-align: center;
+	letter-spacing: .2rem;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.champion-card {
+	cursor: pointer;
+}
+
+.champion-card:hover {
+	opacity: 0.5;
+}
