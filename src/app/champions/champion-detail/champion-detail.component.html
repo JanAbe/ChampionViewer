@@ -1,1 +1,8 @@
-<p>champion-detail works!</p>
+
+<div *ngIf="champion">
+	<div>
+		<img src="{{ splash_art_urls[0] }}">
+	</div>
+	<p>{{ champion.name }}</p>
+	<p>{{ champion.title }}</p>
+</div>

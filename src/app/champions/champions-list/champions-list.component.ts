@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/core/data.service';
 
 @Component({
     selector: 'app-champions-list',
@@ -6,27 +7,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./champions-list.component.css']
 })
 export class ChampionsListComponent implements OnInit {
-	champions: any[] = [
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-		{ name: 'Aatrox' },
-	];
+	champions: any[] = []; // maybe later change to any to Champion class or something.
 
-    constructor() { }
+    constructor(private dataService: DataService) { }
 
     ngOnInit(): void {
+		this.dataService.getChampions()
+		.subscribe((observable) => {
+			observable.subscribe((champions) => this.champions = champions);
+		});
     }
-
 }
