@@ -10,6 +10,6 @@
 </div>
 
 <div class="button-wrapper">
-	<button *ngFor="let skin of splash_art" class="skin-button"></button>
+	<button *ngFor="let skin of splash_art; index as i" (click)="changeSkin(i)" class="skin-button"></button>
 </div>
 

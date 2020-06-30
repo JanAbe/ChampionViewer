@@ -28,6 +28,10 @@ export class ChampionDetailComponent implements OnInit {
 		});
 	}
 
+	changeSkin(index: number): void {
+		this.selected_skin = this.splash_art[index];
+	}
+
 	getSplashArt(champion: any): object[] {
 		return this.dataService.getSplashArt(champion);
 	}
