@@ -44,12 +44,13 @@ export class DataService {
 	getChampion(champion_name: string): Observable<Observable<object>> {
 		return this.getLatestVersion().pipe(
 			map(version => {
-				const champion_url: string = `${this.base_url}/cdn/${version}/data/en_US/champion/${champion_name}.json`;
+				const prepared_champion_name: string = this.transformChampionName(champion_name);
+				const champion_url: string = `${this.base_url}/cdn/${version}/data/en_US/champion/${prepared_champion_name}.json`;
 
 				return this.httpClient.get<Object>(champion_url)
 				.pipe(
 					map(response => {
-						return response['data'][champion_name];
+						return response['data'][prepared_champion_name];
 					}),
 					catchError(this.handleError)
 				)
@@ -74,6 +75,26 @@ export class DataService {
 		const prepared_champion_name: string = this.transformChampionName(champion_name);
 		const splash_art_url: string = `${this.base_url}/cdn/img/champion/splash/${prepared_champion_name}_0.jpg`;
 		return splash_art_url;
+	}
+
+	// Get the urls that point to the art of the spells of the provided champion.
+	getSpellsArt(champion: any): Observable<string[]> {
+		return this.getLatestVersion().pipe(
+			map(version => {
+				let spells_art: string[] = [];
+				const passive_url = `${this.base_url}/cdn/${version}/img/passive/${champion.passive.image.full}`;
+				const q_url = `${this.base_url}/cdn/${version}/img/spell/${champion.spells[0].image.full}`;
+				const w_url = `${this.base_url}/cdn/${version}/img/spell/${champion.spells[1].image.full}`;
+				const e_url = `${this.base_url}/cdn/${version}/img/spell/${champion.spells[2].image.full}`;
+				const r_url = `${this.base_url}/cdn/${version}/img/spell/${champion.spells[3].image.full}`;
+				spells_art.push(passive_url);
+				spells_art.push(q_url);
+				spells_art.push(w_url);
+				spells_art.push(e_url);
+				spells_art.push(r_url);
+				return spells_art;
+			})
+		)
 	}
 	
 	// Gets the latest version of the accessible data by querying
@@ -105,7 +126,8 @@ export class DataService {
 	private transformChampionName(champion_name: string): string {
 		let transformed_name: string;
 		transformed_name = champion_name.replace('\'', '');
-		transformed_name = champion_name.replace(' ', '');
+		transformed_name = transformed_name.replace('.', '');
+		transformed_name = transformed_name.replace(' ', '');
 		return transformed_name;
 	}
 }

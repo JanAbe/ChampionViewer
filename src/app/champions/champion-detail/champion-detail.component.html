@@ -1,4 +1,9 @@
 
+<a routerLink="/champions">
+	<button class="previous-button">
+		<i class="fas fa-chevron-left fa-2x"></i>
+	</button>
+</a>
 <div *ngIf="champion" class="champion-splash-art">
 	<figure>
 		<img src="{{ selected_skin.url }}" width="1050px" height="550px">
@@ -13,3 +18,48 @@
 	<button *ngFor="let skin of splash_art; index as i" (click)="changeSkin(i)" class="skin-button"></button>
 </div>
 
+<div *ngIf="champion" class="spells-container">
+	<hr>
+	<h3 class="spells-title">Spells</h3>
+	<div class="spells-wrapper">
+		<section class="spell" id="passive">
+			<figure class="spell-info">
+				<span class="spell-info-text">{{ champion.passive.description }}</span>
+				<img src="{{ spells_art[0] }}">
+				<figcaption class="spell-name">{{ champion.passive.name }}</figcaption>
+			</figure>
+		</section>
+
+		<section class="spell" id="spellQ">
+			<figure class="spell-info">
+				<span class="spell-info-text">{{ champion.spells[0].description }}</span>
+				<img src="{{ spells_art[1] }}">
+				<figcaption class="spell-name">{{ champion.spells[0].name }} [Q]</figcaption>
+			</figure>
+		</section>
+
+		<section class="spell" id="spellW">
+			<figure class="spell-info">
+				<span class="spell-info-text">{{ champion.spells[1].description }}</span>
+				<img src="{{ spells_art[2] }}">
+				<figcaption class="spell-name">{{ champion.spells[1].name }} [W]</figcaption>
+			</figure>
+		</section>
+
+		<section class="spell" id="spellE">
+			<figure class="spell-info">
+				<span class="spell-info-text">{{ champion.spells[2].description }}</span>
+				<img src="{{ spells_art[3] }}">
+				<figcaption class="spell-name">{{ champion.spells[2].name }} [E]</figcaption>
+			</figure>
+		</section>
+
+		<section class="spell" id="spellR">
+			<figure class="spell-info">
+				<span class="spell-info-text">{{ champion.spells[3].description }}</span>
+				<img src="{{ spells_art[4] }}">
+				<figcaption class="spell-name">{{ champion.spells[3].name }} [R]</figcaption>
+			</figure>
+		</section>
+	</div>
+</div>

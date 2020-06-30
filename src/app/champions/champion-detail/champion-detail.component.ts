@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/core/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
 	selector: 'app-champion-detail',
@@ -10,6 +11,7 @@ import { DataService } from 'src/app/core/data.service';
 export class ChampionDetailComponent implements OnInit {
 	champion: any;
 	splash_art: object[] = [];
+	spells_art: any[] = [];
 	selected_skin: object;
 
 	constructor(private dataService: DataService,
@@ -24,8 +26,14 @@ export class ChampionDetailComponent implements OnInit {
 				this.champion = champion;
 				this.splash_art = this.getSplashArt(champion);
 				this.selected_skin = this.splash_art[0];
+
+				this.getSpellsArt(this.champion)
+				.subscribe((spells_art) => {
+					this.spells_art = spells_art; 
+				});
 			});
 		});
+
 	}
 
 	changeSkin(index: number): void {
@@ -34,6 +42,10 @@ export class ChampionDetailComponent implements OnInit {
 
 	getSplashArt(champion: any): object[] {
 		return this.dataService.getSplashArt(champion);
+	}
+
+	getSpellsArt(champion: any): Observable<string[]> {
+		return this.dataService.getSpellsArt(this.champion);
 	}
 
 }
