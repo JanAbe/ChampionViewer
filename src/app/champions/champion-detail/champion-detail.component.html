@@ -1,8 +1,15 @@
 
-<div *ngIf="champion">
-	<div>
-		<img src="{{ splash_art_urls[0] }}">
-	</div>
-	<p>{{ champion.name }}</p>
-	<p>{{ champion.title }}</p>
+<div *ngIf="champion" class="champion-splash-art">
+	<figure>
+		<img src="{{ selected_skin.url }}" width="1050px" height="550px">
+		<figcaption *ngIf="selected_skin.name === 'default'; else elseBlock">{{ champion.name }}</figcaption>
+		<ng-template #elseBlock>
+			<figcaption>{{ selected_skin.name }}</figcaption>
+		</ng-template>
+	</figure>
 </div>
+
+<div class="button-wrapper">
+	<button *ngFor="let skin of splash_art" class="skin-button"></button>
+</div>
+

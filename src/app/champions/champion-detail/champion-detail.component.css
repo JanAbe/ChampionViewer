@@ -1,0 +1,32 @@
+
+figcaption {
+	text-align: center;
+	letter-spacing: .2rem;
+	font-size: 1.3rem;
+}
+
+.champion-splash-art {
+	display: flex;
+	justify-content: center;
+}
+
+.button-wrapper {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 2rem;
+}
+
+.skin-button {
+	border-radius: 50%;	
+	margin-left: 1rem;
+	margin-right: 1rem;
+	padding-bottom: .5rem;
+	padding-top: .5rem;
+	background-color: #f1cb3e;
+	border: none;
+}
+
+.skin-button:hover {
+	opacity: .8;
+	cursor: pointer;
+}

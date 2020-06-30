@@ -9,7 +9,8 @@ import { DataService } from 'src/app/core/data.service';
 })
 export class ChampionDetailComponent implements OnInit {
 	champion: any;
-	splash_art_urls: string[] = [];
+	splash_art: object[] = [];
+	selected_skin: object;
 
 	constructor(private dataService: DataService,
 				private route: ActivatedRoute) { }
@@ -21,12 +22,14 @@ export class ChampionDetailComponent implements OnInit {
 		.subscribe((observable) => {
 			observable.subscribe((champion) => {
 				this.champion = champion;
-				this.splash_art_urls = this.getSplashArtUrls(champion);
+				this.splash_art = this.getSplashArt(champion);
+				this.selected_skin = this.splash_art[0];
 			});
 		});
 	}
 
-	getSplashArtUrls(champion: any): string[] {
+	getSplashArt(champion: any): object[] {
 		return this.dataService.getSplashArt(champion);
 	}
+
 }

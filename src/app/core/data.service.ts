@@ -58,11 +58,12 @@ export class DataService {
 	}
 
 	// Gets all the splash art the provided champion has.
-	getSplashArt(champion: any): string[] {
-		let splash_art: string[] = [];
+	getSplashArt(champion: any): object[] {
+		let splash_art: object[] = [];
 		for (let skin of champion.skins) {
 			const prepared_champion_name: string = this.transformChampionName(champion.name);
-			splash_art.push(`${this.base_url}/cdn/img/champion/splash/${prepared_champion_name}_${skin.num}.jpg`);
+			const url = `${this.base_url}/cdn/img/champion/splash/${prepared_champion_name}_${skin.num}.jpg`;
+			splash_art.push({url: url, name: skin.name});
 		}
 
 		return splash_art;
