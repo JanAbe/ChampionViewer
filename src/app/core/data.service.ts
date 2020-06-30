@@ -45,6 +45,7 @@ export class DataService {
 		return this.getLatestVersion().pipe(
 			map(version => {
 				const prepared_champion_name: string = this.transformChampionName(champion_name);
+
 				const champion_url: string = `${this.base_url}/cdn/${version}/data/en_US/champion/${prepared_champion_name}.json`;
 
 				return this.httpClient.get<Object>(champion_url)
@@ -124,6 +125,12 @@ export class DataService {
 	// e.g Rek'Sai -> RekSai, Miss Fortune -> MissFortune
 	// It does expect passed in champion names to be capitalized correctly.
 	private transformChampionName(champion_name: string): string {
+		if (champion_name === 'Kai\'Sa') {
+			return 'Kaisa'; // Riot why isn't it just KaiSa :(
+		} else if (champion_name === 'Nunu & Willump') {
+			return 'Nunu';
+		}
+
 		let transformed_name: string;
 		transformed_name = champion_name.replace('\'', '');
 		transformed_name = transformed_name.replace('.', '');

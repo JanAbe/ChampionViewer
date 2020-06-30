@@ -116,3 +116,29 @@ figcaption {
 .spell-info:hover .spell-info-text {
 	visibility: visible;
 }
+
+.stats-container {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.stats-title {
+	text-align: center;
+	margin-top: .5em;
+	margin-bottom: 1.5em;
+	font-size: 1.3em;
+}
+
+.stats-wrapper {
+	display: flex;
+	justify-content: center;
+}
+
+.stats-wrapper section {
+	margin-left: 3.5em;
+	margin-right: 3.5em;
+}
+
+.stats-wrapper section p strong {
+	color: gold;
+}
