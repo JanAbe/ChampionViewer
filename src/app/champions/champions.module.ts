@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { ChampionsComponent } from './champions.component';
 import { ChampionsListComponent } from './champions-list/champions-list.component';
@@ -9,7 +10,7 @@ import { ChampionDetailRoutingModule } from './champion-detail/champion-detail-r
 
 @NgModule({
 	declarations: [ ChampionsComponent, ChampionsListComponent, ChampionDetailComponent ],
-	imports: [ CommonModule, ChampionsRoutingModule, ChampionDetailRoutingModule ],
+	imports: [ CommonModule, FormsModule, ChampionsRoutingModule, ChampionDetailRoutingModule ],
 	exports: [ ChampionsComponent ]
 })
 export class ChampionsModule{}

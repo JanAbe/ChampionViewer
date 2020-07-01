@@ -2,7 +2,7 @@
 	<div *ngFor="let champion of champions">
 		<figure class="champion-card">
 			<a [routerLink]="['/champions', champion.name]">
-				<img src="{{ champion.defaultSplashArt }}" width="450px" height="250px">
+				<img src="{{ champion.defaultSplashArt }}" >
 			</a>
 			<figcaption>{{ champion.name }}</figcaption>
 		</figure>

@@ -1,12 +1,7 @@
 
-<a routerLink="/champions">
-	<button class="previous-button">
-		<i class="fas fa-chevron-left fa-2x"></i>
-	</button>
-</a>
 <div *ngIf="champion" class="champion-splash-art">
 	<figure>
-		<img src="{{ selected_skin.url }}" width="1050px" height="550px">
+		<img src="{{ selected_skin.url }}" >
 		<figcaption *ngIf="selected_skin.name === 'default'; else elseBlock">{{ champion.name }}</figcaption>
 		<ng-template #elseBlock>
 			<figcaption>{{ selected_skin.name }}</figcaption>
@@ -68,40 +63,46 @@
 	<hr>
 	<h3 class="stats-title">Stats lvl 1</h3>
 	<div class="stats-wrapper">
-		<section>
-			<p>Health Points: <strong>{{ champion.stats.hp }}</strong></p>
-			<p>Health Points per lvl: <strong>{{ champion.stats.hpperlevel }}</strong></p>
-			<hr>
-			<p>Health Regen: <strong>{{ champion.stats.hpregen }}</strong></p>
-			<p>Health Regen per lvl: <strong>{{ champion.stats.hpregenperlevel }}</strong></p>
+		<section class="group-stats">
+			<section>
+				<p>Health Points: <strong>{{ champion.stats.hp }}</strong></p>
+				<p>Health Points per lvl: <strong>{{ champion.stats.hpperlevel }}</strong></p>
+				<hr>
+				<p>Health Regen: <strong>{{ champion.stats.hpregen }}</strong></p>
+				<p>Health Regen per lvl: <strong>{{ champion.stats.hpregenperlevel }}</strong></p>
+			</section>
+			<section>
+				<p>Mana Points: <strong>{{ champion.stats.mp }}</strong></p>
+				<p>Mana Points per lvl: <strong>{{ champion.stats.mpperlevel }}</strong></p>
+				<hr>
+				<p>Mana Regen: <strong>{{ champion.stats.mpregen }}</strong></p>
+				<p>Mana Regen per lvl: <strong>{{ champion.stats.mpregenperlevel }}</strong></p>
+			</section>
 		</section>
-		<section>
-			<p>Mana Points: <strong>{{ champion.stats.mp }}</strong></p>
-			<p>Mana Points per lvl: <strong>{{ champion.stats.mpperlevel }}</strong></p>
-			<hr>
-			<p>Mana Regen: <strong>{{ champion.stats.mpregen }}</strong></p>
-			<p>Mana Regen per lvl: <strong>{{ champion.stats.mpregenperlevel }}</strong></p>
+		<section class="group-stats">
+			<section>
+				<p>Armour: <strong>{{ champion.stats.armor }}</strong></p>
+				<p>Armour per lvl: <strong>{{ champion.stats.armorperlevel }}</strong></p>
+				<hr>
+				<p>Magic Resist: <strong>{{ champion.stats.spellblock }}</strong></p>
+				<p>Magic Resist per lvl: <strong>{{ champion.stats.spellblockperlevel }}</strong></p>
+			</section>
+			<section>
+				<p>Attack Damage: <strong>{{ champion.stats.attackdamage }}</strong></p>
+				<p>Attack Damage per lvl: <strong>{{ champion.stats.attackdamageperlevel }}</strong></p>
+				<hr>
+				<p>Attack Speed: <strong>{{ champion.stats.attackspeed }}</strong></p>
+				<p>Attack Speed per lvl: <strong>{{ champion.stats.attackspeedperlevel }}</strong></p>
+			</section>
 		</section>
-		<section>
-			<p>Armour: <strong>{{ champion.stats.armor }}</strong></p>
-			<p>Armour per lvl: <strong>{{ champion.stats.armorperlevel }}</strong></p>
-			<hr>
-			<p>Magic Resist: <strong>{{ champion.stats.spellblock }}</strong></p>
-			<p>Magic Resist per lvl: <strong>{{ champion.stats.spellblockperlevel }}</strong></p>
-		</section>
-		<section>
-			<p>Attack Damage: <strong>{{ champion.stats.attackdamage }}</strong></p>
-			<p>Attack Damage per lvl: <strong>{{ champion.stats.attackdamageperlevel }}</strong></p>
-			<hr>
-			<p>Attack Speed: <strong>{{ champion.stats.attackspeed }}</strong></p>
-			<p>Attack Speed per lvl: <strong>{{ champion.stats.attackspeedperlevel }}</strong></p>
-		</section>
-		<section>
-			<p>Crit: <strong>{{ champion.stats.crit }}</strong></p>
-			<p>Crit per lvl: <strong>{{ champion.stats.critperlevel }}</strong></p>
-			<hr>
-			<p>Attack Range: <strong>{{ champion.stats.attackrange }}</strong></p>
-			<p>Movement Speed: <strong>{{ champion.stats.movespeed }}</strong></p>
+		<section class="group-stats">
+			<section>
+				<p>Crit: <strong>{{ champion.stats.crit }}</strong></p>
+				<p>Crit per lvl: <strong>{{ champion.stats.critperlevel }}</strong></p>
+				<hr>
+				<p>Attack Range: <strong>{{ champion.stats.attackrange }}</strong></p>
+				<p>Movement Speed: <strong>{{ champion.stats.movespeed }}</strong></p>
+			</section>
 		</section>
 	</div>
 </div>

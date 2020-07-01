@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/core/data.service';
 import { Observable } from 'rxjs';
+import { FormGroup, FormControl, ValidatorFn } from '@angular/forms';
 
 @Component({
 	selector: 'app-champion-detail',
@@ -33,7 +34,6 @@ export class ChampionDetailComponent implements OnInit {
 				});
 			});
 		});
-
 	}
 
 	changeSkin(index: number): void {
@@ -47,5 +47,4 @@ export class ChampionDetailComponent implements OnInit {
 	getSpellsArt(champion: any): Observable<string[]> {
 		return this.dataService.getSpellsArt(this.champion);
 	}
-
 }
